@@ -25,12 +25,6 @@ spring:
         binder:
           brokers: localhost:9092
 
-  autoconfigure:
-    exclude:
-      - org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
-      - org.springframework.boot.autoconfigure.data.redis.RedisReactiveAutoConfiguration
-      - org.springframework.cloud.stream.config.BindingServiceConfiguration
-
 server:
   port: 8080
 
@@ -43,9 +37,9 @@ management:
         include: health,info,prometheus,metrics
   endpoint:
     health:
-      show-details: always
+      show-details: when-authorized
 
 logging:
   level:
-    com.chaindata.api: DEBUG
+    com.chaindata.api: INFO
     org.springframework.r2dbc: INFO
