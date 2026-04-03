@@ -2,5 +2,42 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
+  ],
+  "labels": ["dependencies"],
+  "rangeStrategy": "pin",
+  "packageRules": [
+    {
+      "description": "Group Spring Boot and Spring Cloud updates",
+      "matchPackagePrefixes": [
+        "org.springframework",
+        "io.spring"
+      ],
+      "groupName": "spring",
+      "groupSlug": "spring"
+    },
+    {
+      "description": "Group TestContainers updates",
+      "matchPackagePrefixes": ["org.testcontainers"],
+      "groupName": "testcontainers",
+      "groupSlug": "testcontainers"
+    },
+    {
+      "description": "Group Resilience4j updates",
+      "matchPackagePrefixes": ["io.github.resilience4j"],
+      "groupName": "resilience4j",
+      "groupSlug": "resilience4j"
+    },
+    {
+      "description": "Group Flyway updates",
+      "matchPackagePrefixes": ["org.flywaydb"],
+      "groupName": "flyway",
+      "groupSlug": "flyway"
+    },
+    {
+      "description": "Group MapStruct updates",
+      "matchPackagePrefixes": ["org.mapstruct"],
+      "groupName": "mapstruct",
+      "groupSlug": "mapstruct"
+    }
   ]
 }
