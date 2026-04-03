@@ -3,14 +3,14 @@ spring:
     name: chaindata-api
 
   r2dbc:
-    url: r2dbc:postgresql://localhost:5432/chaindata
-    username: chaindata
-    password: chaindata
+    url: ${R2DBC_URL:r2dbc:postgresql://localhost:5432/chaindata}
+    username: ${R2DBC_USERNAME:chaindata}
+    password: ${R2DBC_PASSWORD:chaindata}
 
   flyway:
-    url: jdbc:postgresql://localhost:5432/chaindata
-    user: chaindata
-    password: chaindata
+    url: ${FLYWAY_URL:jdbc:postgresql://localhost:5432/chaindata}
+    user: ${FLYWAY_USER:chaindata}
+    password: ${FLYWAY_PASSWORD:chaindata}
     locations: classpath:db/migration
     baseline-on-migrate: true
 

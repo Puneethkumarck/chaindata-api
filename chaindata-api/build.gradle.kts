@@ -42,6 +42,7 @@ dependencies {
     // MapStruct
     implementation(libs.mapstruct)
     annotationProcessor(libs.mapstruct.processor)
+    annotationProcessor("org.projectlombok:lombok-mapstruct-binding:0.2.0")
 
     // Logging
     implementation(libs.logstash.logback.encoder)
