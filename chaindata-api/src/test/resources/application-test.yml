@@ -1,0 +1,13 @@
+spring:
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.data.redis.RedisAutoConfiguration
+      - org.springframework.boot.autoconfigure.data.redis.RedisReactiveAutoConfiguration
+      - org.springframework.cloud.stream.config.BindingServiceConfiguration
+
+  flyway:
+    enabled: false
+
+logging:
+  level:
+    com.chaindata.api: DEBUG
