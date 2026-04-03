@@ -1,10 +1,4 @@
 spring:
-  autoconfigure:
-    exclude:
-      - org.springframework.boot.data.redis.autoconfigure.DataRedisAutoConfiguration
-      - org.springframework.boot.data.redis.autoconfigure.DataRedisReactiveAutoConfiguration
-      - org.springframework.cloud.stream.config.BindingServiceConfiguration
-
   flyway:
     enabled: false
 
