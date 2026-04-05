@@ -47,6 +47,13 @@ dependencies {
     // Logging
     implementation(libs.logstash.logback.encoder)
 
+    // --- Test Fixtures dependencies ---
+    testFixturesImplementation("org.springframework.boot:spring-boot-starter-test")
+    testFixturesImplementation(libs.testcontainers.junit)
+    testFixturesImplementation(libs.testcontainers.postgresql)
+    testFixturesImplementation(libs.testcontainers.kafka)
+    testFixturesImplementation(libs.testcontainers.r2dbc)
+
     // --- Test dependencies ---
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("io.projectreactor:reactor-test")

@@ -115,6 +115,28 @@ val architectureTestTask = tasks.register<Test>("architectureTest") {
     shouldRunAfter(integrationTestTask)
 }
 
+val businessTest by sourceSets.creating {
+    java.srcDir("src/business-test/java")
+    resources.srcDir("src/business-test/resources")
+    resources.srcDir("src/test/resources")
+    compileClasspath += sourceSets.main.get().output + sourceSets.testFixtures.get().output
+    runtimeClasspath += sourceSets.main.get().output + sourceSets.testFixtures.get().output
+}
+
+configurations[businessTest.implementationConfigurationName].extendsFrom(configurations.testImplementation.get())
+configurations[businessTest.runtimeOnlyConfigurationName].extendsFrom(configurations.testRuntimeOnly.get())
+configurations[businessTest.compileOnlyConfigurationName].extendsFrom(configurations.testCompileOnly.get())
+configurations[businessTest.annotationProcessorConfigurationName].extendsFrom(configurations.testAnnotationProcessor.get())
+
+val businessTestTask = tasks.register<Test>("businessTest") {
+    description = "Runs business/E2E tests."
+    group = "verification"
+    useJUnitPlatform()
+    testClassesDirs = businessTest.output.classesDirs
+    classpath = businessTest.runtimeClasspath
+    shouldRunAfter(integrationTestTask)
+}
+
 tasks.check {
-    dependsOn(integrationTestTask, architectureTestTask)
+    dependsOn(integrationTestTask, architectureTestTask, businessTestTask)
 }
