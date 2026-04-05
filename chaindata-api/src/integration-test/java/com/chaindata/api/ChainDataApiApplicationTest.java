@@ -20,6 +20,10 @@ class ChainDataApiApplicationTest extends IntegrationTestBase {
 
     @Test
     void shouldLoadApplicationContext() {
-        assertThat(applicationContext).isNotNull();
+        // when
+        var context = applicationContext;
+
+        // then
+        assertThat(context).isNotNull();
     }
 }

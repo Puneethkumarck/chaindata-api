@@ -6,6 +6,7 @@ import org.testcontainers.kafka.KafkaContainer;
 
 public class KafkaContainerExtension implements BeforeAllCallback {
 
+    @SuppressWarnings("resource")
     private static final KafkaContainer CONTAINER = new KafkaContainer("apache/kafka:3.8.1");
 
     @Override
