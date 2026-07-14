@@ -11,7 +11,7 @@ archunit = "1.4.1"
 testcontainers = "2.0.4"
 wiremock = "3.13.2"
 awaitility = "4.3.0"
-jib = "3.5.3"
+jib = "3.5.4"
 
 [libraries]
 # Lombok
